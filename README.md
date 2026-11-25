@@ -147,6 +147,36 @@ flowchart LR
 | `kill-procedure` | Systematic venture shutdown: documentation, wiki updates, service deactivation, data archiving (including a proven PostHog export script) - interactive, asks before each step, never deletes. | `sonnet` / medium |
 | `venture-learnings` | Generate a structured post-mortem learnings document (and PDF) when a venture is shut down or paused - so the next venture starts smarter. | `sonnet` / medium |
 
+## How `venture-council` works
+
+> **Caution: this is the heaviest skill in the repo.** One run dispatches about 28 agents (1 lead, 7 council members, 21 analysts) with extensive web research, and can consume a very large number of tokens. It never starts automatically: you have to invoke `/venture-council` yourself. Check your plan limits or API budget first, use it for decisions that justify the cost, and for a lighter check start with `venture-dd`.
+
+One lead briefs seven council members in parallel. Each member dispatches three research analysts, writes a perspective report, and the lead synthesizes all seven reports with dissent kept visible.
+
+```mermaid
+flowchart TB
+    U["You: venture idea + core question"] --> L1["Lead (fable)<br/>setup, briefing, one question per member"]
+    L1 --> C1["Visionary"]
+    L1 --> C2["Pragmatist"]
+    L1 --> C3["Commercial Thinker"]
+    L1 --> C4["Operator"]
+    L1 --> C5["Customer Obsessive"]
+    L1 --> C6["Sceptic"]
+    L1 --> C7["Builder"]
+    C1 & C2 & C3 & C4 & C5 & C6 & C7 --> A["3 research analysts per member (haiku)<br/>web search + fetch, sourced facts only<br/>21 in total"]
+    A --> R["7 perspective reports (sonnet)"]
+    R --> L2["Lead: synthesis<br/>consensus, dissent, blind spots,<br/>counter-thesis, recommendation as a bet"]
+    L2 --> O["00-synthesis.md + 7 reports"]
+```
+
+**Why this setup**
+
+- **Independent angles:** each member answers one question from one perspective (growth, feasibility, money, operations, customer, risk, build effort), so no single viewpoint dominates the analysis.
+- **Dissent stays visible:** disagreement between members is reported, not averaged away. The design follows *Thinking in Bets* (Annie Duke) and *The Venture Mindset* (Strebulaev/Dang), where a single well-argued conviction can outweigh the average.
+- **Sourced facts only:** analysts must use web search, and anything they cannot find is marked "no reliable data found" instead of invented.
+- **Cost where it matters:** the expensive model only briefs and synthesizes, mid-tier models write the perspectives, and the cheapest model does the research.
+- **Decision as a bet:** the recommendation comes with confidence percentages and a deliberate search for the strongest counter-thesis, so it reads as decision support, not a verdict.
+
 ## Requirements
 
 Most skills work with Claude Code alone. These need extra tools or access:
