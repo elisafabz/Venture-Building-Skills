@@ -1,0 +1,51 @@
+{
+  "_comment": "Campaign config template — fill in every field, then pass it to deploy_campaign.py",
+  "campaign": {
+    "name": "2604_example",
+    "objective": "OUTCOME_SALES",
+    "status": "PAUSED",
+    "special_ad_categories": []
+  },
+  "ad_set": {
+    "name": "2604_example_Ad Set",
+    "daily_budget_cents": 2100,
+    "optimization_goal": "LANDING_PAGE_VIEWS",
+    "billing_event": "IMPRESSIONS",
+    "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
+    "start_time": null,
+    "end_time": null,
+    "targeting": {
+      "geo_locations": {"countries": ["US"]},
+      "age_min": 55,
+      "age_max": 65,
+      "locales": [6],
+      "targeting_automation": {"advantage_audience": 0}
+    },
+    "promoted_object": {
+      "pixel_id": "PIXEL_ID_HERE",
+      "custom_event_type": "OTHER"
+    },
+    "publisher_platforms": ["facebook", "instagram"],
+    "facebook_positions": ["feed", "marketplace", "story", "reels"],
+    "instagram_positions": ["stream", "story", "reels"]
+  },
+  "ads": {
+    "page_id": "PAGE_ID_HERE",
+    "link": "https://example.com",
+    "cta_type": "LEARN_MORE",
+    "naming_pattern": "2604_example_K{angle}_v{variant}"
+  },
+  "creatives": {
+    "image_dir": "Creatives",
+    "formats": {
+      "square": "1-1",
+      "vertical": "9_16"
+    },
+    "file_pattern": "{angle_index}.{variant}_{format}.png"
+  },
+  "copy_file": "copy_output.json",
+  "angles_to_use": [0, 1, 2],
+  "primary_text_type": "medium",
+  "max_alt_headlines": 4,
+  "max_alt_primary_texts": 4
+}

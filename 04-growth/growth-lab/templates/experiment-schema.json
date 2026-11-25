@@ -1,0 +1,43 @@
+{
+  "$schema": "Experiment schema for experiments.json",
+  "example": {
+    "id": "EXP-001",
+    "created": "2026-04-30",
+    "venture": "example-venture",
+    "channel": "meta-ads",
+    "element": "hook",
+    "hypothesis": "If we use a curiosity-gap hook instead of a pain point, CTR will rise by 30%, because our audience responds more strongly to curiosity than to negative emotion.",
+    "primary_metric": "CTR",
+    "target": ">1.5%",
+    "ice_score": 8.3,
+    "ice_breakdown": {
+      "impact": 8,
+      "confidence": 7,
+      "ease": 10
+    },
+    "status": "running",
+    "start_date": "2026-04-30",
+    "end_date": null,
+    "budget_eur": 150,
+    "duration_days": 7,
+    "kill_rule": "CTR < 0.5% after 48h or CPA > 25 EUR after 2x CPA spend",
+    "scale_rule": "CPA in target range with 10+ conversions -> budget +20% every 3-5 days",
+    "results": {
+      "impressions": null,
+      "ctr": null,
+      "cpc": null,
+      "conversions": null,
+      "cpa": null,
+      "spend": null,
+      "custom_metrics": {}
+    },
+    "verdict": null,
+    "learnings": null,
+    "next_action": null,
+    "benchmark_source": null
+  },
+  "valid_channels": ["meta-ads", "google-ads", "landing-page", "linkedin", "email"],
+  "valid_elements": ["hook", "creative-format", "copy", "cta", "audience", "headline", "social-proof", "layout", "form", "keywords", "bidding", "format", "content-angle", "hashtags", "posting-time", "subject-line", "preview-text", "send-time", "content-structure"],
+  "valid_statuses": ["backlog", "running", "completed", "killed"],
+  "valid_verdicts": ["confirmed", "rejected", "inconclusive"]
+}
