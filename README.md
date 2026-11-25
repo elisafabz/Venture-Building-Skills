@@ -156,16 +156,19 @@ One lead briefs seven council members in parallel. Each member dispatches three 
 ```mermaid
 flowchart TB
     U["You: venture idea + core question"] --> L1["Lead (fable)<br/>setup, briefing, one question per member"]
-    L1 --> C1["Visionary"]
-    L1 --> C2["Pragmatist"]
-    L1 --> C3["Commercial Thinker"]
-    L1 --> C4["Operator"]
-    L1 --> C5["Customer Obsessive"]
-    L1 --> C6["Sceptic"]
-    L1 --> C7["Builder"]
-    C1 & C2 & C3 & C4 & C5 & C6 & C7 --> A["3 research analysts per member (haiku)<br/>web search + fetch, sourced facts only<br/>21 in total"]
-    A --> R["7 perspective reports (sonnet)"]
-    R --> L2["Lead: synthesis<br/>consensus, dissent, blind spots,<br/>counter-thesis, recommendation as a bet"]
+    L1 --> M["7 council members in parallel (sonnet)<br/>Visionary, Pragmatist, Commercial Thinker, Operator,<br/>Customer Obsessive, Sceptic, Builder"]
+    subgraph each["Inside each member (repeated 7x = 21 analysts)"]
+        direction LR
+        A1["Analyst 1<br/>(haiku)"]
+        A2["Analyst 2<br/>(haiku)"]
+        A3["Analyst 3<br/>(haiku)"]
+        P["Perspective report<br/>sourced facts only"]
+        A1 --> P
+        A2 --> P
+        A3 --> P
+    end
+    M --> each
+    each --> L2["Lead: synthesis<br/>consensus, dissent, blind spots,<br/>counter-thesis, recommendation as a bet"]
     L2 --> O["00-synthesis.md + 7 reports"]
 ```
 
