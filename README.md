@@ -4,6 +4,18 @@
 
 Each skill is a reusable instruction package, extracted and generalised from real venture-building work: validating, prototyping and launching multiple products.
 
+## Why this exists
+
+Most new ventures fail in predictable ways: founders build before they have checked that anyone needs the product, run growth experiments without a clear hypothesis, and shut down without learning anything for the next attempt.
+
+These skills turn a venture-building process into repeatable steps that an AI assistant can run with you. The assistant does the legwork (research, structuring, drafting, checklists). You make the decisions.
+
+- **Who it is for:** solo founders, venture builders and product managers who already use Claude Code.
+- **What you get:** one skill per step of the lifecycle, so you can pick the step you are on instead of adopting a whole framework.
+- **Assumes:** Claude Code or a compatible agent. The prototyping skills assume React and Supabase. The discovery skills use web search, and a few need other tools (see [Requirements](#requirements)).
+- **Limits:** the output is decision support, not a decision. Desk research is weak evidence, and the skills label how strong it is. Legal and compliance output are templates that need review by a lawyer in your jurisdiction.
+- **Design choices:** a human stays in the loop (interactive skills ask before destructive steps, and the multi-agent council keeps dissent visible instead of averaging it away). Token cost is kept visible: heavy skills only run when you invoke them, and each skill declares a recommended model and effort.
+
 ## Quick start
 
 Install one skill, then invoke it:
